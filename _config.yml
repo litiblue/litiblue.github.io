@@ -1,32 +1,24 @@
-# Welcome to Jekyll!
+# Permalinks
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: 모험으로 사는 인생
-email: litiblue@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-    인생, 신앙, 프로그래밍, ...
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: litiblue
-github_username: litiblue
+# Setup
+title:               모험으로 사는 인생
+tagline:             "L'Aventure de la Vie"
+description:         '<a href="http://litiblue.com" target="_blank">litiblue</a> </br> Twitter : <a href="https://twitter.com/litiblue" target="_blank">@litiblue</a>'
+url:                 http://www.litiblue.com
+baseurl:             ''
+paginate:            5
 
-# Build settings
-markdown: kramdown
-theme: jekyll-theme-time-machine
+# About/contact
+author:
+  name:              Steve Seo
+  url:               https://twitter.com/litiblue
+  email:             litiblue@gmail.com
+
+# Custom vars
+version:             1.0.0
+
 gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
+  - jekyll-paginate

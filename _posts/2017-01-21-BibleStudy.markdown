@@ -2,7 +2,7 @@
 layout: post
 title:  "1월 21일 성경 공부"
 date:   2017-01-21 17:45:00 +0900
-categories: nifi
+categories: bible
 ---
 
 
