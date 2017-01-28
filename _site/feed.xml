@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://localhost:4000/</link>
+    <description></description>
+    <pubDate>Sat, 28 Jan 2017 21:04:12 +0900</pubDate>
+    
+      <item>
+        <title>NiFi</title>
+        <link>http://localhost:4000/dev/2017/01/21/NiFi.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev/2017/01/21/NiFi.html</guid>
+        <description>&lt;ul&gt;
+  &lt;li&gt;데이터 분산, 처리 시스템&lt;/li&gt;
+  &lt;li&gt;이종 시스템 간의 데이터 흐름 자동화 플랫폼
+    &lt;ul&gt;
+      &lt;li&gt;(서로 다른 포멧, 프로토콜, …)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;특징&quot;&gt;특징&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;데이터 라우팅, 변형을 위한 방향성 그래프 지원&lt;/li&gt;
+  &lt;li&gt;데이터 흐름의 생성, 모니터링, 제어를 위한 웹 기반 UI 제공&lt;/li&gt;
+  &lt;li&gt;런타임에 데이터 흐름을 변경, 우선순위 조정 (Highly configurable)&lt;/li&gt;
+  &lt;li&gt;전체 시스템의 데이터 실시간으로 추적하는 Data Provenance&lt;/li&gt;
+  &lt;li&gt;커스텀 구성요소(components) 개발을 통한 쉬운 확장&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 21 Jan 2017 17:45:00 +0900</pubDate>
+      </item>
+    
+      <item>
+        <title>1월 21일 성경 공부</title>
+        <link>http://localhost:4000/bible/2017/01/21/BibleStudy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bible/2017/01/21/BibleStudy.html</guid>
+        <description>&lt;h3 id=&quot;예배학---3-대표기도&quot;&gt;예배학 - (3) 대표기도&lt;/h3&gt;
+
+&lt;h4 id=&quot;openess가-가장-중요함&quot;&gt;&lt;strong&gt;openess&lt;/strong&gt;가 가장 중요함&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;누구에게나 열려 있어야 함
+    &lt;ul&gt;
+      &lt;li&gt;나가고, 신문 보고&lt;/li&gt;
+      &lt;li&gt;흙 묻은 옷을 입고 예배에 참석했던 히피들 처럼&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;너무 정돈된 예배(모두가 크리스찬 이기 때문에)를 깰 수 없을까?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;미리-적어놓은-기도문으로-기도&quot;&gt;미리 적어놓은 기도문으로 기도&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;반대하는 사람도 있지만 기도문으로 기도하는 것은 엄청난 힘이 있음&lt;/li&gt;
+  &lt;li&gt;미리 정성을 다해 준비한 기도문을 읽는 것도 좋다!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;대표-기도의-유래&quot;&gt;대표 기도의 유래&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;한국에만 있는 대표기도&lt;/li&gt;
+  &lt;li&gt;한국말로 기도까지 하기 버거웠던 선교사들이 장로들에게 맡기기 시작하여 독특한 순서가 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;자주-하는-실수&quot;&gt;자주 하는 실수&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;멋지게 하려는 것&lt;/li&gt;
+  &lt;li&gt;개인적인 level로 하는것이 필요함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;–&lt;/p&gt;
+
+&lt;h3 id=&quot;사도행전-5장&quot;&gt;사도행전 5장&lt;/h3&gt;
+
+&lt;p&gt;17절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여기서 시기심은 비느하스의 열심&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;20절&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;성전 : 내 나와바리에서 … !!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;30 ~ 31절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;나무에 달아 죽인(메시아 일리가 없음) &amp;lt;–모순–&amp;gt; 자기 오른쪽에 앉히시고&lt;/li&gt;
+  &lt;li&gt;부활 : 영역이 옮겨짐 (땅 –&amp;gt; 하늘)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;33절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;당연히 격분&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;34절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가말리엘 : 힐렐의 손자, 사울의 선생&lt;/li&gt;
+  &lt;li&gt;힐렐 vs 샴마이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;41절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기뻐하면서(마5:10~11)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;42절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여기서 성전은 솔로몬 행각&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;복 : 하나님의로 부터 생명을 공급 받는 상태&lt;/p&gt;
+
+&lt;p&gt;–&lt;/p&gt;
+
+&lt;h3 id=&quot;사도행전-6장&quot;&gt;사도행전 6장&lt;/h3&gt;
+
+&lt;p&gt;1절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;유대인들의 동족에 대한 환대는 대단함 (이방인에 대해서는 아니었음)&lt;/li&gt;
+  &lt;li&gt;과부가 되면 예루살렘으로 이동
+    &lt;ul&gt;
+      &lt;li&gt;예루살렘의 여자 비율이 타지역에 비해 높을 정도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 시점에 이방인은 거의 없었음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;제자들이 점점 불어났다
+    &lt;ul&gt;
+      &lt;li&gt;창세기의 ‘생육하고 번성하라’ -&amp;gt; ‘땅끝까지 이르러 …’&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;불평을 터뜨렸다. 여기서 불평은 광야에서와 같은 단어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;니골라 (계 2:6,15의 니골라당과 연관이 있을지도 모름)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;7명의 이름을 보면 그리스식 …&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;불평 -&amp;gt; 그럼 너희가 해 (대단한 신뢰를 바탕으로)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;안디옥 출신, 앞쪽에 언급된 가말리엘과 함께 이 대목에서 바울을 떠올렸을 것&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;6절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;신 16:18&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;7절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;제사장들 가운데서도, 성전의 역할이 넘어오고 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;8절&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;길리기아, 다소의 바울을 떠올리게 됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;11절 ~&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;유대인들의 민족 정체성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  1. 예루살렘(땅)
+  2. 성전
+  3. 율법
+  4. 할례, 안식일 등의 규례
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이러한 민족 정체성을 건드린 교회
+    &lt;ul&gt;
+      &lt;li&gt;예수님이 성전!&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;율법은 그림자 예수님이 율법&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;11절의 모세와 하나님을 모독&lt;/li&gt;
+      &lt;li&gt;13절의 거룩한 곳(성전)과 율법을 거슬러&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;거의 확신범 … 죽여야 …&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;12절의 공의회, 13절의 거짓 증인 예수님과 오버랩됨&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 21 Jan 2017 17:45:00 +0900</pubDate>
+      </item>
+    
+  </channel>
+</rss>
