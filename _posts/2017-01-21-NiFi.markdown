@@ -2,7 +2,7 @@
 layout: post
 title:  "NiFi"
 date:   2017-01-21 17:45:00 +0900
-categories: nifi
+categories: dev
 ---
 - 데이터 분산, 처리 시스템
 - 이종 시스템 간의 데이터 흐름 자동화 플랫폼
