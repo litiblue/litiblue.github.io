@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Sun, 29 Jan 2017 20:44:53 +0900</pubDate>
+    <pubDate>Sun, 29 Jan 2017 20:46:23 +0900</pubDate>
     
       <item>
         <title>NiFi</title>
@@ -206,8 +206,8 @@
     
       <item>
         <title>더 나은 Git 사용을 위한 명령어</title>
-        <link>http://localhost:4000/dev/2017/01/21/BetterGit.html</link>
-        <guid isPermaLink="true">http://localhost:4000/dev/2017/01/21/BetterGit.html</guid>
+        <link>http://localhost:4000/dev/2015/08/17/BetterGit.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev/2015/08/17/BetterGit.html</guid>
         <description>&lt;p&gt;이미 Git을 어느 정도 사용해보았고, branch의 merge개념도 어느정도 익숙한 분들을 위한 내용입니다. 핵심적인 내용만 간단히 정리해놓았으니, 보다 자세한 내용을 원하시는 분들은 뒤에 있는 참고 사이트를 보시길 바랍니다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
@@ -373,7 +373,7 @@ git reset HEAD~2&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://git-scm.com/book/ko/v2/&quot;&gt;http://git-scm.com/book/ko/v2/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sat, 21 Jan 2017 17:45:00 +0900</pubDate>
+        <pubDate>Mon, 17 Aug 2015 17:45:00 +0900</pubDate>
       </item>
     
   </channel>

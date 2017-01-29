@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "더 나은 Git 사용을 위한 명령어"
-date:   2017-01-21 17:45:00 +0900
+date:   2015-08-17 17:45:00 +0900
 categories: dev
 ---
 
