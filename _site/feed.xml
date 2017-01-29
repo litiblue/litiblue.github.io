@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Sun, 29 Jan 2017 20:38:05 +0900</pubDate>
+    <pubDate>Sun, 29 Jan 2017 20:43:24 +0900</pubDate>
     
       <item>
         <title>NiFi</title>
@@ -288,6 +288,7 @@ pick 5c67e61 Message for commit #3&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;h4 id=&quot;31-reset&quot;&gt;3.1 reset&lt;/h4&gt;
 
 &lt;p&gt;브랜치의 끝을 다른 커밋으로 이동하는 것입니다. 다음과 같이 커밋들을 지우는데 사용 가능합니다.&lt;/p&gt;
@@ -318,6 +319,7 @@ git reset HEAD~2&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;h4 id=&quot;32-checkout&quot;&gt;3.2 checkout&lt;/h4&gt;
 
 &lt;p&gt;브랜치를 checkout했던 것처럼 커밋 주소를 통해서도 checkout하는것이 가능합니다. 브랜치의 경우와 마찬가지로 HEAD참조를 특정한 커밋으로 옮깁니다. 예를 들면 다음 명령은 현재 커밋의 조부모로 체크아웃 합니다.&lt;/p&gt;
@@ -333,6 +335,7 @@ git reset HEAD~2&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;h4 id=&quot;33-revert&quot;&gt;3.3 revert&lt;/h4&gt;
 
 &lt;p&gt;새로운 커밋을 생성하여 되돌리기를 하는 방법입니다. 커밋 히스토리를 건드리지 않기 때문에 안전합니다.&lt;/p&gt;
@@ -348,6 +351,7 @@ git reset HEAD~2&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;h3 id=&quot;4-stash&quot;&gt;4. stash&lt;/h3&gt;
 
 &lt;p&gt;스테이지에 있는 파일들을 스택에 잠시 저장해두는 명령어 입니다. 어떤 브랜치에서 작업중인데 다른 브랜치로 잠시 이동(checkout)해야 할 경우 유용합니다. 다른 브랜치에서의 작업이 끝나면 다시 돌아온 뒤 스택에서 꺼내면 됩니다.&lt;/p&gt;
@@ -361,6 +365,7 @@ git reset HEAD~2&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;h3 id=&quot;참고reference&quot;&gt;참고(reference)&lt;/h3&gt;
 
 &lt;ul&gt;
