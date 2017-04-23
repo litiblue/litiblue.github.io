@@ -5,7 +5,7 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://localhost:4000/</link>
     <description></description>
-    <pubDate>Sun, 23 Apr 2017 20:15:55 +0900</pubDate>
+    <pubDate>Sun, 23 Apr 2017 20:19:09 +0900</pubDate>
     
       <item>
         <title>NiFi</title>
@@ -37,9 +37,8 @@
         <link>http://localhost:4000/dev/2015/08/19/GitBestPractices.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev/2015/08/19/GitBestPractices.html</guid>
         <description>&lt;p&gt;본격적으로 Git을 사용하기에 앞서 Git사용시 베스트 프랙티스가 무엇인지 알아보았습니다.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;1-commit-하기-전에-git-diff로-코드-리뷰-버그-방지&quot;&gt;1. commit 하기 전에 git diff로 코드 리뷰 (버그 방지)&lt;/h3&gt;
 &lt;ul&gt;
