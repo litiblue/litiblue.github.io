@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AWS에서 Kubernetes클러스터 구축하기"
+title:  "AWS에서 Kubernetes클러스터 구축하기 (1)"
 date:   2018-03-14 15:50:00 +0900
 categories: dev
 ---
