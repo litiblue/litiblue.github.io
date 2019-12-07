@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>온더 서류 전형 블록체인 문제 풀이 | 모험으로 사는 인생</title>
+	<meta name="description" content="블록체인 회사 온더의 서류 전형 문제를 풀어보았습니다. 꽤 어렵다고 느껴져 모두 풀지는 못하였고 해결한 문항에 대해서만 문제와 답을 함께 올립니다. 모든 문항은 온더 공개채용 공고 에서 확인할 수 있습니다.실무 경험에서 우러나온 수준 높은 문제라고 생각되니 블록체인에 관심이 있는 ...">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/solarized-dark.css">
+	<!--
+	-->
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/dev/2018/07/03/BlockchainQuiz.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="모험으로 사는 인생" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<h1 class="site-title">
+			<a href="/">모험으로 사는 인생</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li>
+	<a href="mailto:litiblue@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.facebook.com/litiblue" title="Follow on Facebook">
+		<i class="fa fa-fw fa-facebook"></i>
+	</a>
+</li>
+
+
+
+
+
+<li>
+	<a href="https://github.com/litiblue" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/litiblue" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">온더 서류 전형 블록체인 문제 풀이</h1>
+    <p class="meta">
+    July 3, 2018
+    
+    |
+    <span class="post-categories">
+        
+        
+        <a href="/categories/#dev">dev</a>
+        
+        
+    </span>
+    </p>
+  </header>
+  <section class="post-content"><p>블록체인 회사 온더의 서류 전형 문제를 풀어보았습니다. 꽤 어렵다고 느껴져 모두 풀지는 못하였고 해결한 문항에 대해서만 문제와 답을 함께 올립니다. 모든 문항은 <a href="https://medium.com/onther-tech/%EC%98%A8%EB%8D%94-%EA%B3%B5%EA%B0%9C%EC%B1%84%EC%9A%A9-%EA%B3%B5%EA%B3%A0-cc408a4bf763">온더 공개채용 공고</a> 에서 확인할 수 있습니다.
+실무 경험에서 우러나온 수준 높은 문제라고 생각되니 블록체인에 관심이 있는 분이라면 꼭 풀어보시는 것을 추천드립니다.</p>
+
+<p><br /></p>
+
+<h2 id="온더-서류-전형-문답">온더 서류 전형 문답</h2>
+
+<p><br /></p>
+
+<h4 id="2-다음-명제에-대한-참거짓-여부를-판단하고-근거를-제시하시오">2. 다음 명제에 대한 참거짓 여부를 판단하고 근거를 제시하시오.</h4>
+
+<p>“Solidity의 keccak함수의 연산은 EVM의 스택머신에서 이루어진다.”</p>
+
+<p>스택머신을 무엇으로 정의하느냐에 따라 다르게 해석할 수 있다. EVM 자체가 스택머신이라는 점에선 참이지만 연산 과정만 본다면 스택을 사용하지 않기 때문에 거짓이다.</p>
+
+<p>keccak함수 실행시 입력 데이터 주소를 스택에서 pop을 통해 가져오고 결과를 스택에 push하므로 스택머신에서 이루어진다고 볼 수 있다. 하지만 keccak 함수의 연산 자체는 스택이 아닌 메모리에서 이루어진다.</p>
+
+<p>다음 주소에서 keccak 함수의 연산 과정을 확인할 수 있다.</p>
+
+<p><a href="https://github.com/ethereum/py-evm/blob/master/evm/vm/logic/sha3.py">https://github.com/ethereum/py-evm/blob/master/evm/vm/logic/sha3.py</a></p>
+
+<p><br /></p>
+
+<h4 id="3-0x60-옵코드opcode는-어떤-명령인가">3. 0x60 옵코드(OPCODE)는 어떤 명령인가?</h4>
+
+<p>PUSH1으로 스택에 1바이트를 넣는 명령이다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>PUSH1 0x60 PUSH1 0x40 MSTORE
+</code></pre>
+</div>
+
+<p>위와 같은 코드의 바이트 코드는 <code class="highlighter-rouge">6060604052</code> 인데 <code class="highlighter-rouge">PUSH1</code>은 <code class="highlighter-rouge">0x60</code> 이고 <code class="highlighter-rouge">MSTORE</code>는 <code class="highlighter-rouge">0x52</code> 이기 때문이다. 코드가 실행되는 과정은 스택에 <code class="highlighter-rouge">0x60</code>과 <code class="highlighter-rouge">0x40</code>이 차례로 들어가고 <code class="highlighter-rouge">MSTORE</code>가 실행되어 값<code class="highlighter-rouge">0x60</code>을 <code class="highlighter-rouge">0x40</code>위치에 저장 한다. 이 경우 스택에 들어있던 <code class="highlighter-rouge">0x60</code>과 <code class="highlighter-rouge">0x40</code>두 값은 <code class="highlighter-rouge">MSTORE</code> 연산에 의해 사용 되었으므로 스택은 비워지게 된다.</p>
+
+<p><br /></p>
+
+<h4 id="4-다음-명제에-대한-참거짓-여부를-판단하고-근거를-제시하시오">4. 다음 명제에 대한 참거짓 여부를 판단하고 근거를 제시하시오.</h4>
+
+<p>“EA가 CA한테 이더를 보냈다. CA의 balance와 storageRoot는 모두 바뀐다. (단, CA 코드에 msg.value를 사용하는 부분은 없다)”</p>
+
+<p>CA의 balance는 바뀌지만 storageRoot는 바뀌지 않으므로 위 명제는 거짓이다.</p>
+
+<p>State Trie에 각 account별 상태 정보 nonce, balance, storageRoot, codeHash가 저장 되는데 이 중 storageRoot는 컨트랙트 데이터가 저장되어있는 Storage Trie가 변경되는 경우에만 바뀐다. EA가 CA한테 이더를 보낼 때는 두 account의 balance만 변하게 되며 컨트랙트의 변수를 변경하는 것은 아니므로 storageRoot는 바뀌지 않고 balance만 바뀌게 된다.</p>
+
+<p><br /></p>
+
+<h4 id="6-evm-옵코드-중-jump와-jumpdest의-차이와-역할에-대해서-서술하시오">6. EVM 옵코드 중 JUMP와 JUMPDEST의 차이와 역할에 대해서 서술하시오.</h4>
+
+<p>명령문의 흐름 제어에 쓰이는 옵코드로 JUMPDEST로 지정된 곳으로만 JUMP를 통해 이동 가능하다. 컴파일러 버그 등 얘기치 못한 보안 문제 발생시 약속 되지 않은 코드 실행을 막을 수 있다.</p>
+
+<p><br /></p>
+
+<h4 id="7-모든-거래내역이-공개되어-있음에도-불구하고-해커가-비트코인을-훔쳐갔을-때-이를-추적하기-어려운-이유는-무엇인가">7. 모든 거래내역이 공개되어 있음에도 불구하고, 해커가 비트코인을 훔쳐갔을 때 이를 추적하기 어려운 이유는 무엇인가?</h4>
+
+<ul>
+  <li>주소와 거래내역이 모두 공개 되어있음에도 불구하고 신원 정보는 알 수가 없음</li>
+  <li>TOR 브라우저나 VPN 등을 사용하여 지갑에 접근하면 접근 기록 마져도 가릴 수 있음</li>
+  <li>믹서 툴을 이용하면 주소와 거래 내역을 대규모로 생성하여 실제 해커의 주소를 추적하는 아주 어렵게 만들 수 있음</li>
+  <li>거래소에서 환전을 하거나 물건을 구입할 때 신원 정보를 알 수 있게 되지만 그 시점을 알기 힘듦</li>
+  <li>다른 암호화폐로 바꾸거나 다크넷에서 사용하면 추적이 힘들어짐</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="9-payble-모디파이어modifier에-대해서-설명하고-payable-모디파이어가-없는-ico-컨트랙트는-만들어질-수-있는가-있다면-그-이유는-무엇인가">9. payble 모디파이어(modifier)에 대해서 설명하고 payable 모디파이어가 없는 ICO 컨트랙트는 만들어질 수 있는가? 있다면 그 이유는 무엇인가?</h4>
+
+<p>모디파이어는 특정 함수에 미리 정의된 속성(기능)을 추가하는 것으로 payable 모디파이어가 지정된 함수는 이더 송금과 함께 호출할 수 있다. 또한 이름 없는 fallback 함수를 payable과 함께 선언하여 함수 지정없이도 이더를 송금하면 실행되도록 할 수 있다.</p>
+
+<p>payable 모디파이어가 없는 ICO 컨트랙트를 만들고자 한다면 다른 account를 통해 이더를 받은 것을 확인한 뒤 토큰 전송 함수를 호출하는 방식으로 구현 가능하다. ICO에 참여하고자 하는 사람 마다 이더리움 account를 생성하여 할당 함과 동시에 ICO토큰을 받을 account 주소를 입력 받아 주기적으로 account 잔고를 확인하여 입금 되었을 경우엔 입력 받은 account 주소로 토큰을 전송한다. 이 방식을 사용하기 위해선 컨트랙트 외부에서 실행되는 프로세스가 필요할 것으로 보인다.</p>
+
+<p><br /></p>
+
+<h4 id="13-truffle-migratetruffle-compiletruffle-test-각각의-명령어는-truffle에서-어떤-역할을-하는지-서술하시오">13. truffle migrate,truffle compile,truffle test 각각의 명령어는 Truffle에서 어떤 역할을 하는지 서술하시오.</h4>
+
+<p><strong>(1) truffle migrate</strong></p>
+
+<ul>
+  <li>컨트랙트를 truffle.js에 있는 이더리움 네트워크에 배포</li>
+  <li>프로젝트의 migrations 디렉토리에 있는 마이그레이션 스크립트를 실행</li>
+  <li>이 전에 성공한 마이그레이션이 있다면 그 이후에 만들어진 부분만 실행</li>
+  <li>순서 지정을 위해 마이그레이션 파일 앞에 숫자를 포함</li>
+  <li>artifacts.require로 컨트랙트를 불러온 뒤 deploy로 배포하며 link로 컨트랙트 간 연결</li>
+</ul>
+
+<p><strong>(2) truffle compile</strong></p>
+
+<ul>
+  <li>solidity로 작성한 컨트랙트를 EVM이 이해할 수 있는 바이트코드로 컴파일</li>
+  <li>build/contracts 디렉토리에 결과가 json 형태로 저장되어 배포 시에 사용</li>
+  <li>다른 파일 및 라이브러리를 import 하는 경우 함께 컴파일</li>
+</ul>
+
+<p><strong>(3) truffle test</strong></p>
+
+<ul>
+  <li>자바스크립트, 솔리디티 두 언어를 모두 지원</li>
+  <li>test 디렉토리에 있는 테스트 파일 들이 실행되며 경로를 지정하는 것도 가능</li>
+  <li>테스트 할 때마다 새로운 환경에서 실행</li>
+  <li>다음 순서로 실행 : 컨트랙트 컴파일 -&gt; 마이그레이션을 통해 네트워크에 배포 -&gt; 배포된 컨트랙트를 테스트</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="14-github에서-solidity-코드가-알록달록linter하게-보이기-위해서는-어떤-작업을-해야하는가">14. github에서 solidity 코드가 알록달록(linter)하게 보이기 위해서는 어떤 작업을 해야하는가?</h4>
+
+<p>저장소의 root에 <code class="highlighter-rouge">.gitattributes</code>파일을 추가하고 파일 안에 <code class="highlighter-rouge">*.sol linguist-language=Solidity</code>를 추가</p>
+
+<p><br /></p>
+
+<h4 id="15-이더리움-계정-생성-간에는-뉴모닉-단어를-이용할-수-있다-뉴모닉이-만들-수-있는-계정-갯수의-한도는-있는가-그렇다면-혹은-그렇지-않다면-그-이유를-서술하시오">15. 이더리움 계정 생성 간에는 뉴모닉 단어를 이용할 수 있다. 뉴모닉이 만들 수 있는 계정 갯수의 한도는 있는가? 그렇다면 혹은 그렇지 않다면 그 이유를 서술하시오.</h4>
+
+<p>만들 수 있는 계정 개수의 한도는 없다. 뉴모닉 단어를 이용하여 HD 월렛의 시드를 생성하고 그 시드를 이용하여 root 계정을 만들고 그 것을 이용하여 계층 구조의 하위 계정을 무제한으로 만들 수 있기 때문이다.</p>
+
+<p><br /></p>
+
+<h4 id="16-패러티-멀티시그-해킹httpsparitytechiosecurity-alert-2의-구조와-원리를-설명하시오">16. 패러티 멀티시그 해킹(<a href="https://paritytech.io/security-alert-2/">https://paritytech.io/security-alert-2/)</a>의 구조와 원리를 설명하시오.</h4>
+
+<p>함수 선언과 맞지않는 모든 함수 호출은 delegatecall 로 호출 되도록 되어있기 때문에 라이브러리의 모든 public 함수를 누구나 호출할 수 있게 되어버린다. 해커는 컨트랙트의 소유권을 변경하는 initWallet 함수를 호출하여 소유권을 획득한 뒤 execute 함수를 호출하여 모든 잔고를 자신에게 송금한다.</p>
+
+<p><br /></p>
+
+<h4 id="17-솔리디티-proxy-pattern에-대해서-설명하시오">17. 솔리디티 Proxy Pattern에 대해서 설명하시오.</h4>
+
+<ul>
+  <li>한 번 배포된 코드(라이브러리)를 업그레이드(취약점 해결)하기 위하여 사용</li>
+  <li>모든 메시지콜을 Proxy 컨트랙트를 통하도록 하여 최신 버전의 컨트랙트로 리다이렉트 되도록 함</li>
+  <li>새 버전의 컨트랙트를 먼저 배포하고 Proxy가 새로운 주소를 가리키도록 업데이트</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="18-call-delegate-call-static-call의-차이에-대해서-설명하시오">18. call, delegate call, static call의 차이에 대해서 설명하시오.</h4>
+
+<p><strong>call</strong><br />
+특정 주소의 다른 컨트랙트를 데이터, 가스, 이더와 함께 실행한다. 컨트랙트 A를 통해 컨트랙트 B 호출시 컨텍스트는 컨트랙트 B의 컨텍스트로 변경되며 msg.sender는 컨트랙트 A가 된다.</p>
+
+<p><strong>delegate call</strong><br />
+컨트랙트 A를 통해 컨트랙트 B 호출시 컨텍스트는 바뀌지 않으며 msg.sender와 msg.value가 컨트랙트 A 호출시와 같다. 오직 코드만 컨트랙트 B의 것을 사용한다고 보면 된다.</p>
+
+<p><strong>static call</strong><br />
+상태를 변경하는 경우와 읽기만 하는 경우를 구분하기 위하여 사용한다. static call을 사용하면 다른 컨트랙트로 리다이랙트 되는 경우에도 상태 변경이 일어나지 않음을 확실히 보장할 수 있다.</p>
+
+<p><br /></p>
+
+<h4 id="19-solidity와-vyper의-차이점과-두-언어의-장단점에-대해서-각각-설명하시오">19. solidity와 Vyper의 차이점과 두 언어의 장단점에 대해서 각각 설명하시오.</h4>
+
+<p><strong>두 언어의 차이점</strong></p>
+
+<ul>
+  <li><strong>개발 철학 및 추구하는 방향</strong>
+    <ul>
+      <li>Vyper는 언어 차원에서 높은 가독성 및 Auditability를 지원하여 쉽게 이해할 수 있는 에러 없는 코드를 지향</li>
+    </ul>
+  </li>
+  <li><strong>Modifier 지원 여부</strong>
+    <ul>
+      <li>solidity는 함수에 Modifier를 지정할 수 있고 코드 실행 전후 체크에 사용하며 상태가 변경 되기도 함</li>
+      <li>Vyper는 Modifier의 사용이 가독성을 해치고 오해를 불러올 수 있기 때문에 지원하지 않음</li>
+    </ul>
+  </li>
+  <li><strong>Vyper가 지원하지 않는 기능</strong>
+    <ul>
+      <li>클래스 상속 : 코드를 이해하기 어렵게 만든다고 생각하여 이를 지원하지 않음</li>
+      <li>인라인 어셈블리 : 변수명을 읽거나 변경되는 코드를 찾기 힘들게 만든다고 생각하여 지원하지 않음</li>
+      <li>함수 오버로딩 : 어떤 함수가 실행 되는지 알기 힘들게 하고 코드에서 함수를 찾기 힘들게 하므로 지원하지 않음</li>
+      <li>재귀호출 및 무한-길이 반복 문 : 가스의 제한을 지정할 수없어 가스제한 공격에 노출될 수 있어 지원하지 않음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>두 언어의 장단점</strong></p>
+
+<ul>
+  <li>언어적인 측면에서 solidity가 더 많은 기능을 지원 하는 반면 Vyper는 몇 몇 기능을 일부러 지원하지 않음으로 높은 가독성 및 보안을 달성하고자 함. 개발 목적에 따라 solidity 또는 Vyper를 택하면 될 것으로 보임</li>
+  <li>단, Vyper를 택한다고 해도 현 시점에 사용 가능한 라이브러리의 수가 상대적으로 적고 이미 solidity에 익숙해져 있는 경우 기존 solidity 개발 환경이 더 나을 것으로 보임</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="20-on의-시간복잡도를-가진-알고리즘은-퍼블릭-이더리움에서-동작-가능한가-가능하다면-혹은-가능하지-않다면-그-이유는-무엇인지-서술하시오">20. O(n)의 시간복잡도를 가진 알고리즘은 퍼블릭 이더리움에서 동작 가능한가? 가능하다면 혹은 가능하지 않다면 그 이유는 무엇인지 서술하시오.</h4>
+
+<p>이론적으로는 동작 가능 하지만 비용 및 시간이 매우 많이 들기 때문에 현실 적으로 동작 불가능하다.</p>
+
+<p>이더리움의 경우 마이닝 및 벨리데이션 과정 중에 컨트랙트가 실행 되므로 전체 마이너 및 노드 개수가 m개라고 가정했을 때 O(n)의 시간복잡도를 가진 알고리즘이 컨트랙트 내에서 실행 된다면 전체 네트워크 상의 시간 복잡도가 O(n * m) 이다. 노드는 병렬적으로 구성 되어있으므로 실제 실행에 걸리는 시간은 m이 상쇄되어 O(n)이라고 생각 해본다면 별 다른 문제가 없다고 생각할 수도 있지만 비용 면에서 생각 해본다면 그렇지 않다.</p>
+
+<p>단순히 두 숫자를 더하는 연산을 n번 하는 알고리즘이 있다고 한다면 ADD 연산이 3의 가스를 소모하므로 3n 만큼 가스가 들고 이 경우 n이 100만 이라고 한다면 300만 가스가 들고 가스 당 0.00002 USD의 비용이 든다면 총 20 USD 라는 비용이 들게된다. 그런데 실제로 for문 한 번 돌리려고 해도 JUMPDEST, DUP3, AND, ADD 등 수 많은 연산이 필요하다. 게다가 실제 O(n)의 시간 복잡도를 가지는 알고리즘이 단순히 더하는 연산만 하지는 않을 것이다.</p>
+
+<p>이런 사실을 반영하여 어림 잡아 연산 비용에 100배를 한다면 20000 USD 라고 해도 원화로 2000만원은 족히 들게 된다. for문 한 번 돌리는데 이 정도의 비용이 들게되니 현실적으로 O(n)의 알고리즘을 퍼블릭 이더리움에서 동작하는 것은 불가능 하다 이런 알고리즘을 실행해야 하는 경우 메인 체인이 아닌 off chain등을 이용해야 할 것이다.</p>
+
+<p><br /></p>
+
+<h4 id="22-ico-트릴레마에-대해서-설명하시오">22. ICO 트릴레마에 대해서 설명하시오.</h4>
+
+<p><strong>(1) 수량의 상한선 :</strong> 규제 등의 위험을 피하기 위해 판매 금액에는 한도가 있어야 함<br />
+<strong>(2) 중앙 은행 :</strong> 토큰 발행인은 시장을 통제할 수 있을 만큼 매우 큰 비율의 토큰이 가진채로 끝낼 수 없어야 한다<br />
+<strong>(3) 효율성 :</strong> 토큰 세일이 중대한 경제적 비효율 또는 손실을 초래 해서는 안 된다</p>
+
+<p>다음과 같은 이유로 위 세가지를 동시에 만족시킬 수 없다.</p>
+
+<p><strong>(2)</strong>를 만족 시키려면 전부 또는 대부분의 토큰을 판매하여 판매 가치가 판매 가격에 비례하게 해야한다. <strong>(1)</strong>를 만족시키려면 가격의 상한선을 두면 되지만 판매 수량의 균형 가격이 설정한 한도를 초과할 가능성이 있으므로 부족한 부분이 있어야 하는데 이 때문에 필연적으로 큰 손실이 발생하게 되어 <strong>(3)</strong>과 모순된다.</p>
+
+<p><br /></p>
+
+<h4 id="24-토큰의-분류-중-work-token의-개념을-설명하고-work-token의-이상적인-형태에-대해-예를-들어-서술2가지-이상하시오">24. 토큰의 분류 중 Work Token의 개념을 설명하고 Work Token의 이상적인 형태에 대해 예를 들어 서술(2가지 이상)하시오.</h4>
+
+<p><strong>Work Token의 정의</strong></p>
+
+<ul>
+  <li>토큰 소유자에게 네트워크에 참여할 수 있는 권한을 주며 악의적인 행동은 처벌하고 무임 승차에 불이익을 줌</li>
+</ul>
+
+<p><strong>보상/처벌 메커니즘</strong></p>
+
+<ul>
+  <li>먼저 토큰을 예치금으로 걸어 놓는다</li>
+  <li>올바르게 일했을 경우 배당금을 받고 예치금도 돌려 받을 수 있음</li>
+  <li>그러지 않았을 경우 배당금을 받지 못하고 예치금도 잃게 됨</li>
+</ul>
+
+<p><strong>무임 승차 방지</strong></p>
+
+<ul>
+  <li>올바르게 일 했을 경우에만 배당금을 지급하여 무임 승차 문제를 해결</li>
+  <li>토큰을 사용하지 않는 소유자는 토큰을 잃지도 얻지도 않음</li>
+  <li>적극적인 참여 없이도 여전히 네트워크 가치 상승으로 이익을 얻을 수 있지만 참여를 통한 기회는 잃게됨</li>
+</ul>
+
+<p><strong>Work Token의 이상적인 형태 (1)</strong></p>
+
+<ul>
+  <li>보상/처벌 모델에도 불구하고 여전히 네트워크에 참여할 의도가 없는 토큰 소유자들이 다수 존재하는 문제를 해결</li>
+  <li>최대한 많은 토큰 사용자들이 네트워크에 참여할 수 있도록해야 함</li>
+  <li>네트워크에 참여하기 위하여 토큰을 구매하기 위한 장벽이 낮아야 함</li>
+</ul>
+
+<p><strong>Numerai의 경우</strong></p>
+
+<ul>
+  <li>ICO에서 토큰을 파는 대신 데이터 사이언티스트들에게 주었음</li>
+  <li>결과적으로 토큰을 가장 많이 가지고 있는 소유자가 또한 플랫폼의 가장 큰 사용자가 됨</li>
+  <li>이 들은 토큰을 얻기위해 돈을 쓸 필요가 없기 때문에 집입 장벽이 낮아짐</li>
+</ul>
+
+<p><strong>Work Token의 이상적인 형태 (2)</strong></p>
+
+<ul>
+  <li>보상/처벌 모델이 잘 동작해야 함</li>
+</ul>
+
+<p><strong>AUGUR의 경우</strong></p>
+
+<ul>
+  <li>예측 시장 개설자가 등록한 정보를 바탕으로 사용자들이 쉽게 결과를 판단할 수 있게 되어있음</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="27-solidity에서-함수-인자로-전달된-파라미터-a를-함수-내부에서-소괄호로-감쌌다-이것이-무슨-의미를-갖는지-서술하시오">27. Solidity에서 함수 인자로 전달된 파라미터 a를 함수 내부에서 소괄호로 감쌌다. 이것이 무슨 의미를 갖는지 서술하시오.</h4>
+
+<p>별 다른 의미는 없으며 사용 되지 않는 파라미터 때문에 linter가 경고를 표시하는 것을 방지하기 위한 용도로 쓰인다. 실제로는 필요 없는 로직이므로 컴파일러는 이를 무시한다.</p>
+
+<p><br /></p>
+
+<h4 id="28-비트코인의-블럭-tx-구조를-간략히-설명하고-utxo-를-사용--검증하기-위한-과정을-설명하시오">28. 비트코인의 블럭, TX 구조를 간략히 설명하고, UTXO 를 사용 / 검증하기 위한 과정을 설명하시오.</h4>
+
+<p><strong>(1) 블럭 구조</strong></p>
+
+<ul>
+  <li>블럭 헤더
+    <ul>
+      <li>버전</li>
+      <li>시간</li>
+      <li>이전 블럭 해시</li>
+      <li>이전 블럭의 블럭 해시 (헤더의 모든 구성 요소에 해시 함수를 적용하여 계산)</li>
+      <li>머클 루트</li>
+      <li>bits</li>
+      <li>nonce</li>
+    </ul>
+  </li>
+  <li>트랜잭션 데이터
+    <ul>
+      <li>트랜잭션 개수</li>
+      <li>트랜잭션 리스트</li>
+      <li>머클 트리
+        <ul>
+          <li>블럭내 모든 트랜잭션들의 요약 정보</li>
+          <li>이를 통해 한 트랙잭션이 블럭에 포함되는지 확인 가능</li>
+          <li>트랜잭션의 내용이나 순서가 바뀌면 머클 루트도 바뀜</li>
+          <li>데이터 무결성 및 유효성 증명 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>(2) TX 구조</strong></p>
+
+<ul>
+  <li>버전</li>
+  <li>locktime : 설정 시간 이후의 블럭만 이 트랜잭션을 포함할 수 있음</li>
+  <li>vin (리스트 형태)
+    <ul>
+      <li>txid : 어떤 UTXO를 사용할지에 대한 참조</li>
+      <li>vout</li>
+      <li>scriptSig (소유권 증명을 위한 unlocking script)</li>
+      <li>sequence</li>
+    </ul>
+  </li>
+  <li>vout (리스트 형태로)
+    <ul>
+      <li>value : 금액</li>
+      <li>scriptPubKey : 사용하기 위해 필요한 조건을 결정하는 암호 퍼즐 (locking script)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>(3) UTXO의 사용 및 검증</strong></p>
+
+<ul>
+  <li>블럭체인을 탐색하여 사용할 수 있는 UTXO를 가져옴</li>
+  <li>사용 금액에 맞추어 UTXO를 조합하며 사용하고자 하는 금액 이상의 UTXO를 사용한다면 거스름돈이 발생</li>
+  <li>scriptSig (unlocking script)
+    <ul>
+      <li>사용하기 위한 조건을 만족하는지 확인</li>
+      <li>디지털 서명과 공개키를 사용하여 소유권 증명</li>
+      <li>locking script를 해제하여 output의 사용 권한을 획득</li>
+    </ul>
+  </li>
+  <li>scriptPubKey (locking script)
+    <ul>
+      <li>미래에 output을 사용하는 경우 만족해야 하는 조건을 지정</li>
+    </ul>
+  </li>
+  <li>두 script가 이어져 실행 되며 마지막에 스택에 남아있는 True, False 값에 따라 UTXO 사용 여부가 결정 됨
+    <ul>
+      <li>unlocking script : <code class="highlighter-rouge">&lt;sig&gt; &lt;pubKey&gt;</code></li>
+      <li>locking script : <code class="highlighter-rouge">OP_DUP OP_HASH160 &lt;hash160(pubKey)&gt; OP_EQUAL OP_CHECKSIG</code></li>
+    </ul>
+  </li>
+  <li>unlocking script가 locking script 조건을 만족하면 input은 유효함</li>
+  <li>검증 절차는 트랜잭션이 전파될 때 비트코인 네트워크의 모든 full node들에서 실행됨</li>
+  <li>검증이 실패하는 경우 유효하지 않는 트랜잭션으로 간주되어 전파되지 않으므로 마이닝 대상에서 제외됨</li>
+  <li>signature는 사용자의 지갑에 저장되어있는 개인키로부터 생성되며 공개키는 개인키를 이용하여 생성 됨</li>
+  <li>개인키를 사용하여 트랜잭션에 서명할 수 있다면 주소의 소유자임이 증명되므로 이 UTXO를 사용할 수 있게됨</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="29-블록체인의-중요-요소는-해쉬함수와-머클-트리이다-해쉬-함수를-사용하는-것의-의미해쉬-함수의-특성을-설명하고-머클-트리-머클-path-를-설명하시오">29. 블록체인의 중요 요소는 해쉬함수와 머클 트리이다. 해쉬 함수를 사용하는 것의 의미(해쉬 함수의 특성)을 설명하고, 머클 트리, 머클 path 를 설명하시오.</h4>
+
+<p><strong>(1) 해쉬 함수</strong></p>
+
+<ul>
+  <li>임의의 길이를 가진 어떤 임의의 데이터를 일정한 길이의 어떤 데이터로 바꿔주는 함수</li>
+  <li>단 방향 함수로 데이터로 부터 해시 값을 구할 수는 있지만 해시 값 으로 부터 데이터를 역산하는 것은 불가능</li>
+  <li>해시 출력 값이 같은 데이터를 추측 하는 것은 매우 어려움</li>
+  <li>특정 해시 값이 나오는 데이터를 찾으려면 많은 경우의 수의 데이터 확인 필요</li>
+  <li>한 글자만 바뀌어도 전혀 다른 해시 값이 나오기 때문에 데이터 변조 유무 검사에 적합</li>
+  <li>블록체인의 각 블록은 해시 함수로 연결 되어있음</li>
+  <li>한 블록의 내용이 바뀌면 연쇄적으로 해시 값이 바뀌므로 블록 체인의 조작은 매우 어려움</li>
+</ul>
+
+<p><strong>(2) 머클 트리</strong></p>
+
+<ul>
+  <li>해쉬 값을 이진 트리 형태로 구성</li>
+  <li>각 leaf 노드는 데이터 블럭의 해쉬 값이며 부모 노드는 자식 노드들의 해쉬 값임</li>
+  <li>분산 시스템의 데이터 유효성 검증에 주로 사용됨</li>
+  <li>데이터 모두를 사용하는 대신 해쉬 값만 사용하므로 효율적임</li>
+</ul>
+
+<p><strong>(3) 머클 path</strong></p>
+
+<ul>
+  <li>트랜잭션이 특정 블럭에 속했는지 확인하기 위하여 모든 트랜잭션들을 가져올 필요 없이 머클 패스를 사용</li>
+  <li>대상 트랜잭션의 노드 부터 루트 노드 까지 경로 중 각 노드의 짝(형제) 노드의 해쉬 값만 알면 됨</li>
+  <li>형제 노드의 해쉬 값과 부모 노드의 해쉬 값을 알면 나머지 한 형제의 해쉬 값이 올바른지 알 수 있기 때문</li>
+</ul>
+
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>

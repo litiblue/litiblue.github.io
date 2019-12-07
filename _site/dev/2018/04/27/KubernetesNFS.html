@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>AWS에서 Kubernetes클러스터 구축하기 (2) - NFS | 모험으로 사는 인생</title>
+	<meta name="description" content="Kubernetes에서 NFS를 이용하여 컨테이너 간 파일 공유가 가능하도록 합니다.이름이 mynfs인 PersistentVolume과 PersistentVolumeClaim을 각각 생성하고 동일한 볼륨을 사용하는 두 개의 컨테이너 mypod과 mypod-2nd를 생성합니다.myp...">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/solarized-dark.css">
+	<!--
+	-->
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="http://localhost:4000/dev/2018/04/27/KubernetesNFS.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="모험으로 사는 인생" href="http://localhost:4000/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<h1 class="site-title">
+			<a href="/">모험으로 사는 인생</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Social icons from Font Awesome, if enabled -->
+			
+
+
+<li>
+	<a href="mailto:litiblue@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.facebook.com/litiblue" title="Follow on Facebook">
+		<i class="fa fa-fw fa-facebook"></i>
+	</a>
+</li>
+
+
+
+
+
+<li>
+	<a href="https://github.com/litiblue" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/litiblue" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</ul>
+	</nav>
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">AWS에서 Kubernetes클러스터 구축하기 (2) - NFS</h1>
+    <p class="meta">
+    April 27, 2018
+    
+    |
+    <span class="post-categories">
+        
+        
+        <a href="/categories/#dev">dev</a>
+        
+        
+    </span>
+    </p>
+  </header>
+  <section class="post-content"><p>Kubernetes에서 NFS를 이용하여 컨테이너 간 파일 공유가 가능하도록 합니다.
+이름이 <code class="highlighter-rouge">mynfs</code>인 PersistentVolume과 PersistentVolumeClaim을 각각 생성하고 동일한 볼륨을 사용하는 두 개의 컨테이너 <code class="highlighter-rouge">mypod</code>과 <code class="highlighter-rouge">mypod-2nd</code>를 생성합니다.
+<code class="highlighter-rouge">mypod</code>에서 볼륨 디렉토리에 <code class="highlighter-rouge">test_file</code>이라는 파일을 만든 다음 <code class="highlighter-rouge">mypod-2nd</code>에서 해당 파일이 동일하게 생성되었는지 확인 합니다.
+CMD-client에서도 NFS를 마운트 하여 <code class="highlighter-rouge">test_file</code>을 확인합니다.</p>
+
+<h3 id="nfs서버-설치">NFS서버 설치</h3>
+
+<p>AWS에서 제공하는 NFS 서버인 <code class="highlighter-rouge">EFS</code>를 설치하여 사용합니다.</p>
+
+<h4 id="보안-그룹-추가">보안 그룹 추가</h4>
+
+<p>NFS를 위한 보안 그룹을 만들고 아래 목록에 해당하는 보안 그룹에 속한 EC2 인스턴스에서 접근 가능하도록 인바운드 규칙을 추가합니다.</p>
+
+<ul>
+  <li>CMD-client 보안 그룹</li>
+  <li>Kubernetes 마스터 노드 보안 그룹 (<code class="highlighter-rouge">masters.dev.example.com</code>)</li>
+  <li>Kubernetes 나머지 노드 보안 그룹 (<code class="highlighter-rouge">nodes.dev.example.com</code>)</li>
+</ul>
+
+<p>유형을 NFS로 하고 소스를 각 보안 그룹으로 설정하면 됩니다.</p>
+
+<p><img src="/assets/img/2018/05/efs-securitygroup.png" alt="" />
+<em>NFS 보안 그룹 추가</em></p>
+
+<h4 id="efs-설치">EFS 설치</h4>
+
+<p>AWS 콘솔의 서비스 -&gt; EFS -&gt; <code class="highlighter-rouge">Create file system</code>으로 들어갑니다.</p>
+
+<p>Security Groups에 위에서 만들어둔 NFS 보안 그룹을 추가합니다. 이를 통해 CMD-client와 Kubernetes 노드에서 NFS 서버에 접속 가능합니다.</p>
+
+<p><img src="/assets/img/2018/05/create_efs.png" alt="" />
+<em>EFS</em></p>
+
+<h3 id="kubernetes-볼륨-및-컨테이너-생성">Kubernetes 볼륨 및 컨테이너 생성</h3>
+
+<p>NFS서버의 <code class="highlighter-rouge">/</code>디렉토리를 PV에 등록한 뒤 각 Pod에서 <code class="highlighter-rouge">/mymnt</code>디렉토리에 볼륨을 마운트하여 <code class="highlighter-rouge">mypod</code>과 <code class="highlighter-rouge">mypod-2nd</code>가 같은 디렉토리를 공유합니다.</p>
+
+<h4 id="persistentvolume-mynfs-생성">PersistentVolume <code class="highlighter-rouge">mynfs</code> 생성</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat pv-volume-nfs.yaml
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="s">kind</span><span class="pi">:</span> <span class="s">PersistentVolume</span>
+<span class="s">metadata</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mynfs</span>
+<span class="s">spec</span><span class="pi">:</span>
+  <span class="s">capacity</span><span class="pi">:</span>
+    <span class="s">storage</span><span class="pi">:</span> <span class="s">1Gi</span>
+  <span class="s">storageClassName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="s">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="s">nfs</span><span class="pi">:</span>
+    <span class="s">server</span><span class="pi">:</span> <span class="s">fs-xxxxxxxx.efs.us-east-x.amazonaws.com</span>
+    <span class="s">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl create -f pv-volume-nfs.yaml
+persistentvolume "mynfs" created
+</code></pre>
+</div>
+
+<h4 id="persistentvolumeclaim-mynfs-생성">PersistentVolumeClaim <code class="highlighter-rouge">mynfs</code> 생성</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat pvc-volume-nfs.yaml
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">kind</span><span class="pi">:</span> <span class="s">PersistentVolumeClaim</span>
+<span class="s">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="s">metadata</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mynfs</span>
+<span class="s">spec</span><span class="pi">:</span>
+  <span class="s">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="s">resources</span><span class="pi">:</span>
+    <span class="s">requests</span><span class="pi">:</span>
+      <span class="s">storage</span><span class="pi">:</span> <span class="s">100Mi</span>
+  <span class="s">storageClassName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl create -f pvc-volume-nfs.yaml
+persistentvolumeclaim "mynfs" created
+</code></pre>
+</div>
+
+<h4 id="mypod-생성"><code class="highlighter-rouge">mypod</code> 생성</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat pv-pod.yaml
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="s">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="s">metadata</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mypod</span>
+<span class="s">spec</span><span class="pi">:</span>
+  <span class="s">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">myvol</span>
+      <span class="s">persistentVolumeClaim</span><span class="pi">:</span>
+       <span class="s">claimName</span><span class="pi">:</span> <span class="s">mynfs</span>
+  <span class="s">containers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">my-container</span>
+      <span class="s">image</span><span class="pi">:</span> <span class="s">python</span>
+      <span class="s">command</span><span class="pi">:</span> <span class="pi">[</span> <span class="s2">"</span><span class="s">/bin/bash"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">-c"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">--"</span> <span class="pi">]</span>
+      <span class="s">args</span><span class="pi">:</span> <span class="pi">[</span> <span class="s2">"</span><span class="s">while</span><span class="nv"> </span><span class="s">true;</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">sleep</span><span class="nv"> </span><span class="s">30;</span><span class="nv"> </span><span class="s">done;"</span> <span class="pi">]</span>
+      <span class="s">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">containerPort</span><span class="pi">:</span> <span class="s">80</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http-server"</span>
+      <span class="s">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">mountPath</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/mymnt"</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">myvol</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl create -f pv-pod.yaml
+pod "mypod" created
+</code></pre>
+</div>
+
+<h4 id="mypod-2nd-생성">mypod-2nd 생성</h4>
+
+<p>설정 파일 내용은 name을 제외한 모든 내용이 <code class="highlighter-rouge">mypod</code>과 동일합니다.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat pv-pod-2nd.yaml
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="s">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="s">metadata</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">mypod-2nd</span>
+<span class="s">spec</span><span class="pi">:</span>
+  <span class="s">volumes</span><span class="pi">:</span>
+    <span class="s">...</span>
+    <span class="s">...</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl create -f pv-pod-2nd.yaml
+pod "mypod-2nd" created
+</code></pre>
+</div>
+
+<h3 id="파일-공유-테스트">파일 공유 테스트</h3>
+
+<p><code class="highlighter-rouge">mypod</code>에서 생성한 파일이 <code class="highlighter-rouge">mypod-2nd</code>와 <code class="highlighter-rouge">CMD-client</code>에 공유 되는지 확인 합니다.</p>
+
+<h4 id="mypod에서-test_file파일-생성"><code class="highlighter-rouge">mypod</code>에서 <code class="highlighter-rouge">test_file</code>파일 생성</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl exec -it mypod -- /bin/bash
+
+root@mypod:/# cd /mymnt
+root@mypod:/mymnt# touch test_file
+</code></pre>
+</div>
+
+<h4 id="mypod-2nd에서-test_file파일-확인"><code class="highlighter-rouge">mypod-2nd</code>에서 <code class="highlighter-rouge">test_file</code>파일 확인</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ kubectl exec -it mypod-2nd -- /bin/bash
+
+root@mypod-2nd:/# ls /mymnt/
+test_file
+</code></pre>
+</div>
+
+<h4 id="cmd-client에서-test_file파일-확인"><code class="highlighter-rouge">CMD-client</code>에서 <code class="highlighter-rouge">test_file</code>파일 확인</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo mkdir efs
+$ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 fs-xxxxxxxx.efs.us-west-x.amazonaws.com:/ efs
+
+$ ls ./efs/
+test_file
+</code></pre>
+</div>
+
+<h3 id="마치며">마치며</h3>
+
+<p>지난번 포스트를 통해 AWS에서 Kubernetes를 설치하는 방법을 알아보았고 이번에는 컨테이너(Pod)와 볼륨(PV,PVC)이 제대로 생성되고 NFS를 통해 컨테이너 간 파일 공유가 정상적으로 이루어지는지 확인하였습니다. AWS 및 Kubernetes 사용에 참고 바랍니다.</p>
+</section>
+</article>
+
+<!-- Post navigation -->
+
+
+<!-- Disqus -->
+
+
+<!-- Muut -->
+
+
+    </div>
+    
+<script src="/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text">Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
