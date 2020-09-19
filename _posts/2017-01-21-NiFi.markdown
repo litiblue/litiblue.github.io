@@ -1,0 +1,21 @@
+---
+layout: post
+title: NiFi
+date: '2017-01-21 17:45:00 +0900'
+categories: dev
+published: false
+---
+- 데이터 분산, 처리 시스템
+- 이종 시스템 간의 데이터 흐름 자동화 플랫폼
+  - (서로 다른 포멧, 프로토콜, ...)
+
+
+### 특징
+1. 데이터 라우팅, 변형을 위한 방향성 그래프 지원
+2. 데이터 흐름의 생성, 모니터링, 제어를 위한 웹 기반 UI 제공
+3. 런타임에 데이터 흐름을 변경, 우선순위 조정 (Highly configurable)
+4. 전체 시스템의 데이터 실시간으로 추적하는 Data Provenance
+5. 커스텀 구성요소(components) 개발을 통한 쉬운 확장
+
+
+![1*ENK933CRYW8U32t2e0-hpA.png]({{site.baseurl}}/_drafts/1*ENK933CRYW8U32t2e0-hpA.png)
