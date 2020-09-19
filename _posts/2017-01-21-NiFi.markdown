@@ -3,7 +3,7 @@ layout: post
 title: NiFi
 date: '2017-01-21 17:45:00 +0900'
 categories: dev
-published: true
+published: false
 ---
 - 데이터 분산, 처리 시스템
 - 이종 시스템 간의 데이터 흐름 자동화 플랫폼
@@ -18,4 +18,3 @@ published: true
 5. 커스텀 구성요소(components) 개발을 통한 쉬운 확장
 
 
-![1*ENK933CRYW8U32t2e0-hpA.png]({{site.baseurl}}/_drafts/1*ENK933CRYW8U32t2e0-hpA.png)
